@@ -72,7 +72,7 @@ export default function Testimonials() {
                       {new Date(testimonials[0].date).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="text-gray-600 text-lg italic">"{testimonials[0].content}"</p>
+                  <p className="text-gray-600 text-lg italic">&ldquo;{testimonials[0].content}&rdquo;</p>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Testimonials() {
                       {new Date(testimonial.date).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="text-gray-600 italic">"{testimonial.content}"</p>
+                  <p className="text-gray-600 italic">&ldquo;{testimonial.content}&rdquo;</p>
                 </div>
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function Testimonials() {
                 </button>
               </div>
               <p className="text-gray-600 text-lg italic mb-4">
-                "{testimonials.find(t => t.id === selectedTestimonial)?.content}"
+                &ldquo;{testimonials.find(t => t.id === selectedTestimonial)?.content}&rdquo;
               </p>
               <p className="text-sm text-gray-500">
                 Posted on {new Date(testimonials.find(t => t.id === selectedTestimonial)?.date || '').toLocaleDateString()}
