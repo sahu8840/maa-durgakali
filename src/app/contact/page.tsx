@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Map from '../../components/Map';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -75,16 +76,8 @@ export default function Contact() {
             </div>
 
             {/* Map */}
-            <div className="mt-8 h-[300px] rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4397895837193!2d82.0931227!3d26.8876483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07c2c5da1bb7%3A0x7920059a70b12923!2sMaa%20Durgakali%20Shakti%20Peeth!5e0!3m2!1sen!2sin!4v1709799977089!5m2!1sen!2sin"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div className="mt-8">
+              <Map />
             </div>
           </div>
 
