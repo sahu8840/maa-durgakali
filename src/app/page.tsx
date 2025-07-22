@@ -14,7 +14,7 @@ export default function Home() {
             मां दुर्गाकाली शक्तिपीठ अयोध्या धाम
           </h1>
           <p className="text-xl sm:text-2xl text-white/90 mb-12">
-            A spiritual abode for Lord Durga and Kali
+            Spiritual abode of Adi Shakti Maa DurgaKali
           </p>
           <Link
             href="#visit"

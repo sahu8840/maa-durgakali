@@ -31,7 +31,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900 hover:text-red-600 transition-colors duration-200"
+                className="text-sm font-semibold leading-6 text-gray-900 hover:text-yellow-600 transition-colors duration-200"
               >
                 {item.name}
               </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block rounded-lg px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-red-600"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-yellow-600"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FadeInWrapper from "@/components/layout/FadeInWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,9 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} min-h-screen flex flex-col bg-white antialiased`}>
         <Navbar />
-        <main className="flex-grow pt-16">{children}</main>
+        <main className="flex-grow pt-16">
+          <FadeInWrapper>{children}</FadeInWrapper>
+        </main>
         <Footer />
       </body>
     </html>
