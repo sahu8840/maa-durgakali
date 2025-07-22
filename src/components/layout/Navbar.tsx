@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="text-xl font-bold text-red-700">मां दुर्गाकाली शक्तिपीठ</span>
+              <span className="text-xl font-bold text-yellow-700">मां दुर्गाकाली शक्तिपीठ</span>
             </Link>
           </div>
 

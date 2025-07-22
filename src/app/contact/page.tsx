@@ -28,7 +28,7 @@ export default function Contact() {
     <div className="py-16 sm:py-24">
       {/* Hero Section */}
       <div className="relative h-[300px] mb-16">
-        <div className="absolute inset-0 bg-red-900/90" />
+        <div className="absolute inset-0 bg-yellow-800/90" />
         <div className="relative h-full flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white text-center">
             Contact Us
@@ -46,22 +46,22 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Address</h3>
                 <p className="text-gray-600">
                   मां दुर्गाकाली शक्तिपीठ<br />
-                  Near Ram Mandir<br />
-                  Ayodhya Dham, Uttar Pradesh<br />
-                  India
+                  Jaisinghpur urf basupur Sirsa,<br />
+                  Panchkoshi Parikrama Marg near Parma Academy High School,<br />
+                  Ayodhya 224123
                 </p>
               </div>
               
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-                <p className="text-gray-600">+91 XXXXX XXXXX</p>
-                <p className="text-gray-600">+91 XXXXX XXXXX (For Puja Bookings)</p>
+                <p className="text-gray-600">+91 9930504840</p>
+                <p className="text-gray-600">+91 9930504846</p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                <p className="text-gray-600">info@mandurgakali.com</p>
-                <p className="text-gray-600">puja@mandurgakali.com (For Puja Bookings)</p>
+                <p className="text-gray-600">sri1008darbarji@gmail.com</p>
+                <p className="text-gray-600">darbarjimaadurgakali@gmail.com</p>
               </div>
 
               <div>
@@ -74,9 +74,17 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 h-[300px] bg-gray-100 rounded-lg">
-              {/* Google Maps will be integrated here */}
+            {/* Map */}
+            <div className="mt-8 h-[300px] rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4397895837193!2d82.0931227!3d26.8876483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07c2c5da1bb7%3A0x7920059a70b12923!2sMaa%20Durgakali%20Shakti%20Peeth!5e0!3m2!1sen!2sin!4v1709799977089!5m2!1sen!2sin"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
 
@@ -95,7 +103,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 />
               </div>
 
@@ -110,7 +118,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 />
               </div>
 
@@ -124,7 +132,7 @@ export default function Contact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 />
               </div>
 
@@ -139,13 +147,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-200"
+                className="w-full bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors duration-200"
               >
                 Send Message
               </button>

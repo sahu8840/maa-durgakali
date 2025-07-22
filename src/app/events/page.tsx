@@ -53,7 +53,7 @@ export default function Events() {
     <div className="py-16 sm:py-24">
       {/* Hero Section */}
       <div className="relative h-[300px] mb-16">
-        <div className="absolute inset-0 bg-red-900/90" />
+        <div className="absolute inset-0 bg-yellow-800/90" />
         <div className="relative h-full flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white text-center">
             Temple Events
@@ -66,30 +66,30 @@ export default function Events() {
         <div className="flex justify-center space-x-4 mb-12">
           <button
             onClick={() => setFilter('all')}
-            className={`px-6 py-2 rounded-full ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
               filter === 'all'
-                ? 'bg-red-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-yellow-600 text-white'
+                : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             All Events
           </button>
           <button
             onClick={() => setFilter('upcoming')}
-            className={`px-6 py-2 rounded-full ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
               filter === 'upcoming'
-                ? 'bg-red-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-yellow-600 text-white'
+                : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             Upcoming
           </button>
           <button
             onClick={() => setFilter('past')}
-            className={`px-6 py-2 rounded-full ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
               filter === 'past'
-                ? 'bg-red-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-yellow-600 text-white'
+                : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             Past Events
@@ -127,8 +127,8 @@ export default function Events() {
                 </div>
                 <p className="text-gray-600 mb-4">{event.description}</p>
                 {event.type === 'upcoming' && (
-                  <button className="text-red-600 hover:text-red-700 font-semibold">
-                    Set Reminder →
+                  <button className="text-yellow-600 hover:text-yellow-700 font-semibold">
+                    Read More →
                   </button>
                 )}
               </div>

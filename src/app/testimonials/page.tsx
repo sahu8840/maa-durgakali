@@ -45,7 +45,7 @@ export default function Testimonials() {
     <div className="py-16 sm:py-24">
       {/* Hero Section */}
       <div className="relative h-[300px] mb-16">
-        <div className="absolute inset-0 bg-red-900/90" />
+        <div className="absolute inset-0 bg-yellow-800/90" />
         <div className="relative h-full flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white text-center">
             Devotee Testimonials
@@ -115,7 +115,7 @@ export default function Testimonials() {
             We would love to hear about your spiritual journey and experience at our temple.
           </p>
           <button
-            className="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-200"
+            className="bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors duration-200"
             onClick={() => window.location.href = '/contact'}
           >
             Submit Your Testimonial

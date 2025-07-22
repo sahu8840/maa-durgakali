@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "मां दुर्गाकाली शक्तिपीठ अयोध्या धाम",
-  description: "Welcome to Man Durgakali Shaktipeeth Ayodhya Dham - A spiritual abode for Lord Durga and Kali",
+  description: "Welcome to Maa Durgakali Shaktipeeth Ayodhya Dham - A spiritual abode for Lord Durga and Kali",
 };
 
 export default function RootLayout({

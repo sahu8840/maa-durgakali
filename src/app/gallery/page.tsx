@@ -68,7 +68,7 @@ export default function Gallery() {
     <div className="py-16 sm:py-24">
       {/* Hero Section */}
       <div className="relative h-[300px] mb-16">
-        <div className="absolute inset-0 bg-red-900/90" />
+        <div className="absolute inset-0 bg-yellow-800/90" />
         <div className="relative h-full flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white text-center">
             Temple Gallery
@@ -83,10 +83,10 @@ export default function Gallery() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                 selectedCategory === category
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-yellow-600 text-white'
+                  : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               {category}

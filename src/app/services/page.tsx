@@ -44,10 +44,10 @@ export default function Services() {
     <div className="py-16 sm:py-24">
       {/* Hero Section */}
       <div className="relative h-[300px] mb-16">
-        <div className="absolute inset-0 bg-red-900/90" />
+        <div className="absolute inset-0 bg-yellow-800/90" />
         <div className="relative h-full flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white text-center">
-            Temple Services & Pujas
+            Our Services
           </h1>
         </div>
       </div>
@@ -85,9 +85,10 @@ export default function Services() {
                 </div>
               </div>
               <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
-                <Link href="/contact" 
-                  className="text-red-600 hover:text-red-700 font-semibold text-sm">
-                  Book this service →
+                <Link
+                  href="/contact"
+                  className="text-yellow-600 hover:text-yellow-700 font-semibold text-sm">
+                  Book Now →
                 </Link>
               </div>
             </div>
@@ -95,7 +96,7 @@ export default function Services() {
         </div>
 
         {/* Additional Information */}
-        <div className="bg-red-50 rounded-lg p-8 mb-16">
+        <div className="bg-yellow-50 rounded-lg p-8 mb-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Special Requirements</h2>
           <ul className="space-y-2 text-gray-600">
             <li>• Please book special pujas at least 3 days in advance</li>
@@ -113,9 +114,9 @@ export default function Services() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-200"
+            className="inline-block bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-colors duration-200"
           >
-            Contact Us
+            Book a Puja
           </Link>
         </div>
       </div>
