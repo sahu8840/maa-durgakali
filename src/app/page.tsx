@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import Map from '@/components/Map';
 
 export default function Home() {
+  const TEMPLE_MAPS_LINK = "https://maps.app.goo.gl/hb41egCzv4m2XkzX8";
+
   return (
     <div className="relative">
       {/* Hero Section */}
@@ -82,18 +85,19 @@ export default function Home() {
                 Panchkoshi Parikrama Marg near Parma Academy High School,<br />
                 Ayodhya 224123
               </address>
+              <a
+                href={TEMPLE_MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center mt-4 text-yellow-600 hover:text-yellow-700 transition-colors duration-200"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                Get Directions to Temple
+              </a>
             </div>
-            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4397895837193!2d82.0931227!3d26.8876483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07c2c5da1bb7%3A0x7920059a70b12923!2sMaa%20Durgakali%20Shakti%20Peeth!5e0!3m2!1sen!2sin!4v1709799977089!5m2!1sen!2sin"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+            <Map />
           </div>
         </div>
       </section>
