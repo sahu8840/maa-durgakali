@@ -1,7 +1,6 @@
 package com.yourorg.maadurgakali.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 public class Event {
@@ -9,8 +8,10 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private String date;
+    private String time;
     private String description;
-    private LocalDate date;
+    private String image;
 
     // Getters and setters
     public Long getId() { return id; }
@@ -19,9 +20,15 @@ public class Event {
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
+
+    public String getTime() { return time; }
+    public void setTime(String time) { this.time = time; }
+
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
 } 

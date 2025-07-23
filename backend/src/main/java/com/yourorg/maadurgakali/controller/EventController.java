@@ -22,4 +22,23 @@ public class EventController {
     public Event createEvent(@RequestBody Event event) {
         return eventRepository.save(event);
     }
+
+    @PutMapping("/{id}")
+    public Event updateEvent(@PathVariable Long id, @RequestBody Event updatedEvent) {
+        return eventRepository.findById(id)
+            .map(event -> {
+                event.setTitle(updatedEvent.getTitle());
+                event.setDate(updatedEvent.getDate());
+                event.setTime(updatedEvent.getTime());
+                event.setDescription(updatedEvent.getDescription());
+                event.setImage(updatedEvent.getImage());
+                return eventRepository.save(event);
+            })
+            .orElseThrow(() -> new RuntimeException("Event not found with id " + id));
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEvent(@PathVariable Long id) {
+        eventRepository.deleteById(id);
+    }
 } 
