@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import HeroSection from '@/components/gallery/HeroSection';
+import CategoryFilter from '@/components/gallery/CategoryFilter';
+import ImageGrid from '@/components/gallery/ImageGrid';
+import Lightbox from '@/components/gallery/Lightbox';
 
 const galleryImages = [
   {
@@ -66,76 +69,15 @@ export default function Gallery() {
 
   return (
     <div className="py-16 sm:py-24">
-      {/* Hero Section */}
-      <div className="relative h-[300px] mb-16">
-        <div className="absolute inset-0 bg-yellow-800/90" />
-        <div className="relative h-full flex items-center justify-center">
-          <h1 className="text-4xl font-bold text-white text-center">
-            Temple Gallery
-          </h1>
-        </div>
-      </div>
-
+      <HeroSection />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                selectedCategory === category
-                  ? 'bg-yellow-600 text-white'
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredImages.map((image) => (
-            <div
-              key={image.id}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
-              onClick={() => setSelectedImage(image.id)}
-            >
-              <div className="absolute inset-0 bg-gray-200" />
-              {/* Placeholder for actual image */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <p className="text-white text-sm">{image.alt}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Lightbox */}
-        {selectedImage && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
-               onClick={() => setSelectedImage(null)}>
-            <div className="relative max-w-4xl w-full mx-4">
-              <button
-                className="absolute top-4 right-4 text-white hover:text-gray-300"
-                onClick={() => setSelectedImage(null)}
-              >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              <div className="relative aspect-[4/3] bg-gray-800 rounded-lg">
-                {/* Placeholder for actual image in lightbox */}
-              </div>
-              <div className="mt-4 text-center">
-                <p className="text-white text-lg">
-                  {galleryImages.find(img => img.id === selectedImage)?.alt}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <ImageGrid images={filteredImages} onImageClick={setSelectedImage} />
+        <Lightbox selectedImageId={selectedImage} images={galleryImages} onClose={() => setSelectedImage(null)} />
       </div>
     </div>
   );
