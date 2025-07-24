@@ -1,50 +1,56 @@
 // TestimonialsGrid.tsx
+import React from 'react';
 
 type Testimonial = {
   id: number;
   name: string;
   location: string;
-  image: string;
   content: string;
   date: string;
+  image?: string;
 };
 
-function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase();
 }
 
-export default function TestimonialsGrid({ testimonials, setSelectedTestimonial }: {
-  testimonials: Testimonial[],
-  setSelectedTestimonial: (id: number) => void
-}) {
+function getImageUrl(image: string | undefined) {
+  if (!image) return '';
+  if (image.startsWith('http')) return image;
+  return `http://localhost:8080${image}`;
+}
+
+export default function TestimonialsGrid({ testimonials, setSelectedTestimonial }: { testimonials: Testimonial[], setSelectedTestimonial: (id: number) => void }) {
   return (
     <div className="grid md:grid-cols-2 gap-8">
       {testimonials.map((testimonial) => (
-        <div
-          key={testimonial.id}
-          className="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-200"
-          onClick={() => setSelectedTestimonial(testimonial.id)}
-        >
-          <div className="flex items-start gap-4">
-            <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-              {/* Placeholder for testimonial image */}
+        <div key={testimonial.id} className="bg-white rounded-lg shadow-lg p-6 flex items-start cursor-pointer" onClick={() => setSelectedTestimonial(testimonial.id)}>
+          <div className="flex flex-col items-center justify-center mr-6">
+            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-yellow-100 text-yellow-700 text-xl font-bold">
+              {testimonial.image ? (
+                <img
+                  src={getImageUrl(testimonial.image)}
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover"
+                  style={{ minWidth: '64px', minHeight: '64px', maxWidth: '64px', maxHeight: '64px', borderRadius: '9999px' }}
+                  onError={e => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+              ) : (
+                <span>{getInitials(testimonial.name)}</span>
+              )}
             </div>
-            <div className="flex-1">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600">{testimonial.location}</p>
-                </div>
-                <p className="text-sm text-gray-500">
-                  {formatDate(testimonial.date)}
-                </p>
-              </div>
-              <p className="text-gray-600 italic">&ldquo;{testimonial.content}&rdquo;</p>
-            </div>
+          </div>
+          <div className="flex-1">
+            <h4 className="text-lg font-bold text-gray-900 mb-1">{testimonial.name}</h4>
+            <p className="text-gray-600 mb-1">{testimonial.location}</p>
+            <p className="text-gray-600 italic mb-1">{testimonial.content}</p>
+            <p className="text-gray-400 text-xs">{testimonial.date}</p>
           </div>
         </div>
       ))}

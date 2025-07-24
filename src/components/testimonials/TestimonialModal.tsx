@@ -9,12 +9,23 @@ type Testimonial = {
   date: string;
 };
 
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase();
+}
+
+function getImageUrl(image: string | undefined) {
+  if (!image) return '';
+  if (image.startsWith('http')) return image;
+  return `http://localhost:8080${image}`;
+}
+
 function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  // Expecting DD-MM-YYYY, just return as is
+  return dateString;
 }
 
 export default function TestimonialModal({ selectedTestimonialId, testimonials, onClose }: {
@@ -36,8 +47,20 @@ export default function TestimonialModal({ selectedTestimonialId, testimonials, 
       >
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-200">
-              {/* Placeholder for testimonial image */}
+            <div className="relative w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-yellow-100 text-yellow-700 text-xl font-bold">
+              {testimonial.image ? (
+                <img
+                  src={getImageUrl(testimonial.image)}
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover"
+                  style={{ minWidth: '64px', minHeight: '64px', maxWidth: '64px', maxHeight: '64px', borderRadius: '9999px' }}
+                  onError={e => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+              ) : (
+                <span>{getInitials(testimonial.name)}</span>
+              )}
             </div>
             <div>
               <h3 className="font-bold text-gray-900">

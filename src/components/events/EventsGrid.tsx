@@ -3,25 +3,28 @@
 type Event = {
   id: number;
   title: string;
-  date: string;
+  date: string; // DD-MM-YYYY
   time: string;
   description: string;
   image: string;
 };
 
+function parseDate(dateString: string) {
+  // Expects DD-MM-YYYY
+  const [day, month, year] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}
+
 function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  // Already in DD-MM-YYYY
+  return dateString;
 }
 
 export default function EventsGrid({ events }: { events: Event[] }) {
   return (
     <div className="grid md:grid-cols-2 gap-8">
       {events.map((event) => {
-        const isUpcoming = new Date(event.date) >= new Date();
+        const isUpcoming = parseDate(event.date) >= new Date(new Date().setHours(0,0,0,0));
         return (
           <div key={event.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="relative h-48">
