@@ -1,0 +1,14 @@
+to run frontent -->
+    npm run dev
+
+
+FE local url -> http://localhost:3000/maa-durgakali/
+FE deployed url -> https://sahu8840.github.io/maa-durgakali/testimonials/
+
+
+to run backend -->
+    mvn clean package
+    mvn spring-boot:run
+
+BE deployed url -> https://maa-durgakali.onrender.com
+BE localhost url -> http://localhost:8080

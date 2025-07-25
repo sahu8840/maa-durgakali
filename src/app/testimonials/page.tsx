@@ -15,7 +15,7 @@ export default function Testimonials() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:8080/api/testimonials')
+    fetch('https://maa-durgakali.onrender.com/api/testimonials')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch testimonials');
         return res.json();

@@ -23,7 +23,7 @@ export default function Events() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:8080/api/events')
+    fetch('https://maa-durgakali.onrender.com/api/events')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch events');
         return res.json();

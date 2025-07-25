@@ -56,7 +56,7 @@ export default function ShareExperienceForm({ onSubmitted }: { onSubmitted?: () 
       if (photo) {
         form.append('image', photo);
       }
-      const res = await fetch('http://localhost:8080/api/testimonials', {
+      const res = await fetch('https://maa-durgakali.onrender.com/api/testimonials', {
         method: 'POST',
         body: form,
       });

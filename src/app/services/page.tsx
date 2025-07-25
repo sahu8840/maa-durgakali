@@ -20,7 +20,7 @@ export default function Services() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/services')
+    fetch('https://maa-durgakali.onrender.com/api/services')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch services');
         return res.json();
