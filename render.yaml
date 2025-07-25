@@ -25,4 +25,3 @@ services:
     plan: free
     buildCommand: npm run build && npm run export
     startCommand: npx serve@latest out
-    rootDir: src/app 
