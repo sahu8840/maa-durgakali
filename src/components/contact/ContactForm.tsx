@@ -46,8 +46,12 @@ export default function ContactForm() {
       if (!res.ok) throw new Error('Failed to submit your message');
       setSuccess(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || 'Something went wrong');
+      } else {
+        setError('Something went wrong');
+      }
     } finally {
       setLoading(false);
     }

@@ -66,8 +66,12 @@ export default function ShareExperienceForm({ onSubmitted }: { onSubmitted?: () 
       setPhoto(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
       if (onSubmitted) onSubmitted();
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || 'Something went wrong');
+      } else {
+        setError('Something went wrong');
+      }
     } finally {
       setLoading(false);
     }

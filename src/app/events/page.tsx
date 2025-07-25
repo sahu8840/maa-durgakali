@@ -6,8 +6,17 @@ import FilterButtons from '@/components/events/FilterButtons';
 import EventsGrid from '@/components/events/EventsGrid';
 import CalendarSection from '@/components/events/CalendarSection';
 
+interface Event {
+  id: number;
+  title: string;
+  date: string;
+  time: string;
+  description: string;
+  image: string;
+}
+
 export default function Events() {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [filter, setFilter] = useState<'all' | 'upcoming' | 'past'>('all');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +39,7 @@ export default function Events() {
   }, []);
 
   // Compute type if not present in backend
-  const filteredEvents = events.filter((event: any) => {
+  const filteredEvents = events.filter((event: Event) => {
     if (filter === 'all') return true;
     const eventDate = new Date(event.date);
     const now = new Date();

@@ -7,8 +7,16 @@ import AdditionalInfoSection from '@/components/services/AdditionalInfoSection';
 import ContactSection from '@/components/services/ContactSection';
 import { useEffect, useState } from 'react';
 
+interface Service {
+  id: number;
+  name: string;
+  description: string;
+  timings: string;
+  type: string;
+}
+
 export default function Services() {
-  const [services, setServices] = useState<any[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
