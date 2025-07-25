@@ -3,7 +3,7 @@ services:
     name: maa-durgakali-backend
     runtime: docker
     plan: free
-    dockerfilePath: backend/Dockerfile
+    dockerfilePath: Dockerfile
     envVars:
       - key: DB_URL
         sync: false
