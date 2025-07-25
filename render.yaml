@@ -19,9 +19,3 @@ services:
         sync: false
       - key: TWILIO_PHONE_NUMBER
         sync: false
-  - type: web
-    name: maa-durgakali-frontend
-    env: node
-    plan: free
-    buildCommand: npm run build && npm run export
-    startCommand: npx serve@latest out
