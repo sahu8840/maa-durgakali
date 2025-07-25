@@ -11,7 +11,7 @@ interface Service {
   id: number;
   name: string;
   description: string;
-  timings: string;
+  timings: string[];
   type: string;
 }
 
@@ -27,7 +27,14 @@ export default function Services() {
         return res.json();
       })
       .then((data) => {
-        setServices(data);
+        // Normalize timings to always be an array
+        const normalized = data.map((service: any) => ({
+          ...service,
+          timings: Array.isArray(service.timings)
+            ? service.timings
+            : service.timings.split(',').map((t: string) => t.trim()),
+        }));
+        setServices(normalized);
         setLoading(false);
       })
       .catch((err) => {
