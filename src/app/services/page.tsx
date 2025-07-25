@@ -1,5 +1,4 @@
 "use client";
-import Link from 'next/link';
 import HeroSection from '@/components/services/HeroSection';
 import IntroSection from '@/components/services/IntroSection';
 import ServicesGrid from '@/components/services/ServicesGrid';
@@ -28,13 +27,27 @@ export default function Services() {
       })
       .then((data) => {
         // Normalize timings to always be an array
-        const normalized = data.map((service: any) => ({
-          ...service,
-          timings: Array.isArray(service.timings)
-            ? service.timings
-            : service.timings.split(',').map((t: string) => t.trim()),
-        }));
-        setServices(normalized);
+        const normalized = data.map((service: unknown) => {
+          if (
+            typeof service === 'object' &&
+            service !== null &&
+            'timings' in service
+          ) {
+            const s = service as Service & { timings: unknown };
+            let timings: string[] = [];
+            if (Array.isArray(s.timings)) {
+              timings = s.timings as string[];
+            } else if (typeof s.timings === 'string') {
+              timings = (s.timings as string).split(',').map((t: string) => t.trim());
+            }
+            return {
+              ...s,
+              timings,
+            };
+          }
+          return service;
+        });
+        setServices(normalized as Service[]);
         setLoading(false);
       })
       .catch((err) => {
