@@ -1,11 +1,9 @@
 services:
   - type: web
     name: maa-durgakali-backend
-    runtime: native
     plan: free
-    buildCommand: ./mvnw clean package
-    startCommand: java -jar target/*.jar
     rootDir: backend
+    dockerfilePath: Dockerfile
     envVars:
       - key: DB_URL
         sync: false
