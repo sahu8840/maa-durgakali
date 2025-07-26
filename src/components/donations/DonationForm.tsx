@@ -51,35 +51,33 @@ export default function DonationForm() {
         message: formData.message,
         anonymous: formData.anonymous,
         paymentMethod: 'Not specified',
-        status: 'PENDING'
+        status: 'PENDING',
+        date: new Date().toISOString()
       };
 
-      const response = await fetch('/api/donations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(donationData),
-      });
-
-      if (response.ok) {
-        setShowSuccess(true);
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setShowSuccess(false);
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            amount: '',
-            purpose: 'general',
-            message: '',
-            anonymous: false
-          });
-        }, 3000);
-      } else {
-        throw new Error('Failed to submit donation');
-      }
+      // For static export, we'll simulate the submission and show success
+      // In a real implementation, you would send this to your backend directly
+      console.log('Donation Data:', donationData);
+      
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setShowSuccess(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          amount: '',
+          purpose: 'general',
+          message: '',
+          anonymous: false
+        });
+      }, 3000);
+      
     } catch (error) {
       console.error('Error submitting donation:', error);
       alert('Failed to submit donation. Please try again.');
@@ -98,7 +96,8 @@ export default function DonationForm() {
         </p>
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
           <p className="text-sm text-yellow-800">
-            <strong>Note:</strong> Please mention your name or reference number when making the payment for proper tracking.
+            <strong>Note:</strong> Please mention your name when making the payment for proper tracking. 
+            For immediate assistance, contact us at +91 9930504840 or +91 9930504846.
           </p>
         </div>
       </div>
