@@ -22,7 +22,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/donations")
-@CrossOrigin(origins = {"http://localhost:3000", "https://sahu8840.github.io", "https://maa-durgakali.onrender.com"}, allowCredentials = "true")
+@CrossOrigin(origins = "*")
 public class DonationController {
     @Autowired
     private DonationRepository donationRepository;
@@ -59,10 +59,7 @@ public class DonationController {
     @Value("${twilio.phone.number:}")
     private String twilioPhoneNumber;
 
-    @RequestMapping(method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> handleOptions() {
-        return ResponseEntity.ok().build();
-    }
+
 
     @GetMapping
     public List<Donation> getAllDonations() {
