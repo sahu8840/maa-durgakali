@@ -117,7 +117,7 @@ export default function DonationMethods() {
                     </p>
                   </div>
                   <button
-                    onClick={() => copyToClipboard(selectedMethodData.details.upiId, 'upi')}
+                    onClick={() => copyToClipboard(selectedMethodData.details.upiId || '', 'upi')}
                     className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
                   >
                     {copiedField === 'upi' ? 'Copied!' : 'Copy'}
@@ -139,7 +139,7 @@ export default function DonationMethods() {
                       <p className="text-lg font-mono text-gray-900">{value}</p>
                     </div>
                     <button
-                      onClick={() => copyToClipboard(value, key)}
+                      onClick={() => copyToClipboard(value || '', key)}
                       className="bg-yellow-600 hover:bg-yellow-700 text-white px-3 py-1 rounded-lg text-sm font-medium transition-colors duration-200"
                     >
                       {copiedField === key ? 'Copied!' : 'Copy'}
