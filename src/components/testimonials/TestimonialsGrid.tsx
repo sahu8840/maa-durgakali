@@ -21,7 +21,7 @@ function getInitials(name: string) {
 function getImageUrl(image: string | undefined) {
   if (!image) return '';
   if (image.startsWith('http')) return image;
-  return `http://localhost:8080${image}`;
+  return `https://maa-durgakali.onrender.com${image}`;
 }
 
 export default function TestimonialsGrid({ testimonials, setSelectedTestimonial }: { testimonials: Testimonial[], setSelectedTestimonial: (id: number) => void }) {

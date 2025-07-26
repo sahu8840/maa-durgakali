@@ -20,7 +20,7 @@ function getInitials(name: string) {
 function getImageUrl(image: string | undefined) {
   if (!image) return '';
   if (image.startsWith('http')) return image;
-  return `http://localhost:8080${image}`;
+  return `https://maa-durgakali.onrender.com${image}`;
 }
 
 function formatDate(dateString: string) {
