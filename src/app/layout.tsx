@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} min-h-screen flex flex-col bg-white antialiased`}>
         <Navbar />
-        <main className="flex-grow pt-16">
+        <main className="flex-grow">
           <FadeInWrapper>{children}</FadeInWrapper>
         </main>
         <Footer />

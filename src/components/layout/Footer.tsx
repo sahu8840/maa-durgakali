@@ -11,6 +11,7 @@ const navigation = {
     { name: 'Gallery', href: '/gallery' },
     { name: 'Contact', href: '/contact' },
     { name: 'Testimonials', href: '/testimonials' },
+    { name: 'Donations', href: '/donations' },
   ],
   social: [
     {
