@@ -15,7 +15,8 @@ import java.nio.file.Paths;
 public class FileController {
     @GetMapping("/uploads/{filename:.+}")
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) throws MalformedURLException {
-        Path file = Paths.get("D:/maa-durgakali/backend/uploads").resolve(filename);
+        // Use relative path that works on both local and deployed environments
+        Path file = Paths.get("uploads").resolve(filename);
         Resource resource = new UrlResource(file.toUri());
         if (resource.exists() || resource.isReadable()) {
             return ResponseEntity.ok().body(resource);

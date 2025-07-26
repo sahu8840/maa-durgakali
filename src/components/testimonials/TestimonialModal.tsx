@@ -48,13 +48,13 @@ export default function TestimonialModal({ selectedTestimonialId, testimonials, 
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-4">
             <div className="relative w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-yellow-100 text-yellow-700 text-xl font-bold">
-              {testimonial.image ? (
+              {testimonial.image && testimonial.image.trim() !== '' ? (
                 <img
                   src={getImageUrl(testimonial.image)}
                   alt={testimonial.name}
                   className="w-full h-full object-cover"
                   style={{ minWidth: '64px', minHeight: '64px', maxWidth: '64px', maxHeight: '64px', borderRadius: '9999px' }}
-                  onError={e => {
+                  onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />

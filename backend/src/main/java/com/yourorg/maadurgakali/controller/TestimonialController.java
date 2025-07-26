@@ -42,20 +42,36 @@ public class TestimonialController {
     ) throws IOException {
         String imageUrl = "";
         if (image != null && !image.isEmpty()) {
-            String ext = org.springframework.util.StringUtils.getFilenameExtension(image.getOriginalFilename());
-            String filename = java.util.UUID.randomUUID().toString() + (ext != null ? "." + ext : "");
-            File dir = new File(uploadDir);
-            if (!dir.exists()) dir.mkdirs();
-            Path filePath = Paths.get(uploadDir, filename);
-            Files.copy(image.getInputStream(), filePath);
-            imageUrl = "/uploads/" + filename;
+            try {
+                // Ensure upload directory exists
+                File dir = new File(uploadDir);
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+                
+                // Generate unique filename
+                String originalFilename = image.getOriginalFilename();
+                String ext = StringUtils.getFilenameExtension(originalFilename);
+                String filename = UUID.randomUUID().toString() + (ext != null ? "." + ext : "");
+                
+                // Save file
+                Path filePath = Paths.get(uploadDir, filename);
+                Files.copy(image.getInputStream(), filePath);
+                
+                // Set image URL
+                imageUrl = "/uploads/" + filename;
+            } catch (Exception e) {
+                // Handle error silently or log if needed
+            }
         }
+        
         Testimonial testimonial = new Testimonial();
         testimonial.setName(name);
         testimonial.setLocation(location);
         testimonial.setContent(content);
         testimonial.setDate(date);
         testimonial.setImage(imageUrl);
+        
         Testimonial saved = testimonialRepository.save(testimonial);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }

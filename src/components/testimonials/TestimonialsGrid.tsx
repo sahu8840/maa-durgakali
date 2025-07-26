@@ -31,13 +31,13 @@ export default function TestimonialsGrid({ testimonials, setSelectedTestimonial 
         <div key={testimonial.id} className="bg-white rounded-lg shadow-lg p-6 flex items-start cursor-pointer" onClick={() => setSelectedTestimonial(testimonial.id)}>
           <div className="flex flex-col items-center justify-center mr-6">
             <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-yellow-100 text-yellow-700 text-xl font-bold">
-              {testimonial.image ? (
+              {testimonial.image && testimonial.image.trim() !== '' ? (
                 <img
                   src={getImageUrl(testimonial.image)}
                   alt={testimonial.name}
                   className="w-full h-full object-cover"
                   style={{ minWidth: '64px', minHeight: '64px', maxWidth: '64px', maxHeight: '64px', borderRadius: '9999px' }}
-                  onError={e => {
+                  onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
