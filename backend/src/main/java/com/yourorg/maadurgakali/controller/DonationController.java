@@ -22,6 +22,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/donations")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 public class DonationController {
     @Autowired
     private DonationRepository donationRepository;
@@ -65,23 +66,24 @@ public class DonationController {
 
     @PostMapping
     public ResponseEntity<Donation> createDonation(@RequestBody Donation donation) {
-        if (donation.getPhone() == null || donation.getPhone().trim().isEmpty() || 
-            donation.getAmount() == null || donation.getAmount() <= 0) {
-            return ResponseEntity.badRequest().build();
-        }
+        try {
+            if (donation.getPhone() == null || donation.getPhone().trim().isEmpty() || 
+                donation.getAmount() == null || donation.getAmount() <= 0) {
+                return ResponseEntity.badRequest().build();
+            }
 
-        // Set default values
-        if (donation.getStatus() == null) {
-            donation.setStatus("PENDING");
-        }
-        if (donation.getDate() == null) {
-            donation.setDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        }
-        if (donation.getAnonymous() == null) {
-            donation.setAnonymous(false);
-        }
+            // Set default values
+            if (donation.getStatus() == null) {
+                donation.setStatus("PENDING");
+            }
+            if (donation.getDate() == null) {
+                donation.setDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            }
+            if (donation.getAnonymous() == null) {
+                donation.setAnonymous(false);
+            }
 
-        Donation saved = donationRepository.save(donation);
+            Donation saved = donationRepository.save(donation);
 
         // Send email notification to admin
         if (mailSender != null) {
@@ -165,6 +167,11 @@ public class DonationController {
         }
 
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println("Error creating donation: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PutMapping("/{id}")

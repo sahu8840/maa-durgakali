@@ -55,28 +55,34 @@ export default function DonationForm() {
         date: new Date().toISOString()
       };
 
-      // For static export, we'll simulate the submission and show success
-      // In a real implementation, you would send this to your backend directly
-      console.log('Donation Data:', donationData);
+      // Send donation data to Spring Boot backend
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://maa-durgakali-backend.onrender.com';
+      const response = await fetch(`${backendUrl}/api/donations`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(donationData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit donation to backend');
+      }
+
+      console.log('Donation submitted successfully to backend');
       
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setShowSuccess(true);
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setShowSuccess(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          amount: '',
-          purpose: 'general',
-          message: '',
-          anonymous: false
-        });
-      }, 3000);
+             setShowSuccess(true);
+       
+       // Reset form data but keep success message visible
+       setFormData({
+         name: '',
+         email: '',
+         phone: '',
+         amount: '',
+         purpose: 'general',
+         message: '',
+         anonymous: false
+       });
       
     } catch (error) {
       console.error('Error submitting donation:', error);
@@ -94,12 +100,18 @@ export default function DonationForm() {
         <p className="text-gray-600 mb-6">
           Your donation intention has been recorded. Please complete the payment using any of the methods shown on the left.
         </p>
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-yellow-800">
             <strong>Note:</strong> Please mention your name when making the payment for proper tracking. 
             For immediate assistance, contact us at +91 9930504840 or +91 9930504846.
           </p>
         </div>
+        <button
+          onClick={() => setShowSuccess(false)}
+          className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
+        >
+          Submit Another Donation
+        </button>
       </div>
     );
   }

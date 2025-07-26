@@ -57,7 +57,7 @@ export default function DonationMethods() {
   const selectedMethodData = donationMethods.find(method => method.id === selectedMethod);
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8">
+    <div id="donation-methods" className="bg-white rounded-2xl shadow-xl p-8">
       <h3 className="text-2xl font-bold text-gray-900 mb-6">Donation Methods</h3>
       
       {/* Method Selection */}
