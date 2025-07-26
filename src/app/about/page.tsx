@@ -7,7 +7,7 @@ import ManagementSection from '@/components/about/ManagementSection';
 
 export default function About() {
   return (
-    <div className="py-16 sm:py-24">
+    <div className="py-16 sm:py-16">
       <HeroSection />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HistorySection />

@@ -48,12 +48,12 @@ export default function Events() {
   });
 
   return (
-    <div className="py-16 sm:py-24">
+    <div className="py-16 sm:py-16">
       <HeroSection />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FilterButtons filter={filter} setFilter={setFilter} />
         {loading ? (
-          <div className="text-center py-8">Loading events...</div>
+          <div className="text-center py-8 text-gray-700">Loading events...</div>
         ) : error ? (
           <div className="text-center py-8 text-red-600">{error}</div>
         ) : (

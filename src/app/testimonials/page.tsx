@@ -31,11 +31,11 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <div className="py-16 sm:py-24">
+    <div className="py-16 sm:py-16">
       <HeroSection />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {loading ? (
-          <div className="text-center py-8">Loading testimonials...</div>
+          <div className="text-center py-8 text-gray-700">Loading testimonials...</div>
         ) : error ? (
           <div className="text-center py-8 text-red-600">{error}</div>
         ) : testimonials.length > 0 ? (
@@ -45,7 +45,7 @@ export default function Testimonials() {
             <TestimonialModal selectedTestimonialId={selectedTestimonial} testimonials={testimonials} onClose={() => setSelectedTestimonial(null)} />
           </>
         ) : (
-          <div className="text-center py-8">No testimonials found.</div>
+          <div className="text-center py-8 text-gray-700 font-medium">No testimonials found.</div>
         )}
         <ShareExperienceForm />
       </div>

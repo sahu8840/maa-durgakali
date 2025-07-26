@@ -41,7 +41,7 @@ export default function EventsGrid({ events }: { events: Event[] }) {
                   }}
                 />
               ) : (
-                <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400">
+                <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-500">
                   No Image
                 </div>
               )}

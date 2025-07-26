@@ -50,7 +50,7 @@ export default function TestimonialsGrid({ testimonials, setSelectedTestimonial 
             <h4 className="text-lg font-bold text-gray-900 mb-1">{testimonial.name}</h4>
             <p className="text-gray-600 mb-1">{testimonial.location}</p>
             <p className="text-gray-600 italic mb-1">{testimonial.content}</p>
-            <p className="text-gray-400 text-xs">{testimonial.date}</p>
+            <p className="text-gray-500 text-xs">{testimonial.date}</p>
           </div>
         </div>
       ))}

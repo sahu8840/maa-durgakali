@@ -44,7 +44,7 @@ export default function FeaturedTestimonial({ testimonial }: { testimonial: Test
       <h3 className="text-xl font-bold text-gray-900 mb-2">{testimonial.name}</h3>
       <p className="text-gray-600 mb-2">{testimonial.location}</p>
       <p className="text-gray-600 italic mb-2">{testimonial.content}</p>
-      <p className="text-gray-400 text-sm">{testimonial.date}</p>
+      <p className="text-gray-500 text-sm">{testimonial.date}</p>
     </div>
   );
 } 

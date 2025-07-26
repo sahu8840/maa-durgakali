@@ -57,12 +57,12 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="py-16 sm:py-24">
+    <div className="py-16 sm:py-16">
       <HeroSection />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <IntroSection />
         {loading ? (
-          <div className="text-center py-8">Loading services...</div>
+          <div className="text-center py-8 text-gray-700">Loading services...</div>
         ) : error ? (
           <div className="text-center text-red-500 py-8">{error}</div>
         ) : (
