@@ -22,7 +22,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/donations")
-@CrossOrigin(origins = "*")
 public class DonationController {
     @Autowired
     private DonationRepository donationRepository;
