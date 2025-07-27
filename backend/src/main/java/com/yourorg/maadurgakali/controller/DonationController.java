@@ -22,7 +22,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/donations")
-@CrossOrigin(origins = {"http://localhost:3000", "https://sahu8840.github.io", "https://maa-durgakali.onrender.com"}, allowCredentials = "true")
 public class DonationController {
     @Autowired
     private DonationRepository donationRepository;
@@ -61,15 +60,7 @@ public class DonationController {
 
 
 
-    @RequestMapping(method = RequestMethod.OPTIONS)
-    public ResponseEntity<?> handleOptions() {
-        return ResponseEntity.ok()
-            .header("Access-Control-Allow-Origin", "https://sahu8840.github.io")
-            .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-            .header("Access-Control-Allow-Headers", "*")
-            .header("Access-Control-Allow-Credentials", "true")
-            .build();
-    }
+
 
     @GetMapping
     public List<Donation> getAllDonations() {
