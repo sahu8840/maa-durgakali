@@ -60,7 +60,7 @@ export default function HeroSection() {
 
         {/* Content - removed overflow restrictions and improved positioning */}
         <div className="relative z-20 flex items-center justify-center min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-32">
-          <div className="text-center text-white max-w-4xl mx-auto">
+          <div className="text-center text-white max-w-4xl mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-20">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8">
               <span className="block mb-2 sm:mb-3 text-yellow-200">दान करें</span>
               <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white">Make a Donation</span>
