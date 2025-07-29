@@ -155,7 +155,7 @@ public class DonationController {
                             "Please complete the payment using any of the following methods:\n" +
                             "1. UPI: maa.durgakali@okicici\n" +
                             "2. Bank Transfer: ICICI Bank A/C 1234567890\n" +
-                            "3. Cash donation at temple\n\n" +
+                            "3. Cash donation at Maa Durgakali Shakti Peeth, Jaisinghpur urf basupur Sirsa, Panchkoshi Parikrama Marg near Parma Academy High School, Ayodhya 224123\n\n" +
                             "We will contact you shortly to confirm the payment and provide you with a receipt.\n\n" +
                             "Jai Mata Di!\n" +
                             "Maa Durgakali Shaktipeeth");
